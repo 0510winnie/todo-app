@@ -1831,10 +1831,10 @@ __webpack_require__.r(__webpack_exports__);
     };
   },
   created: function created() {
-    this.fetchArticles();
+    this.fetchTodos();
   },
   methods: {
-    fetchArticles: function fetchArticles() {
+    fetchTodos: function fetchTodos() {
       var _this = this;
 
       axios__WEBPACK_IMPORTED_MODULE_0___default.a.get(this.endpoint).then(function (res) {
@@ -1847,7 +1847,7 @@ __webpack_require__.r(__webpack_exports__);
       var _this2 = this;
 
       axios__WEBPACK_IMPORTED_MODULE_0___default.a["delete"]("".concat(this.endpoint, "/").concat(id)).then(function (res) {
-        return _this2.fetchArticles();
+        return _this2.fetchTodos();
       })["catch"](function (err) {
         return console.log(err);
       });
@@ -1858,7 +1858,7 @@ __webpack_require__.r(__webpack_exports__);
       axios__WEBPACK_IMPORTED_MODULE_0___default.a.post("".concat(this.endpoint), this.todo).then(function (res) {
         _this3.todo.title = '';
 
-        _this3.fetchArticles();
+        _this3.fetchTodos();
       })["catch"](function (err) {
         return console.log(err.response.data);
       });

@@ -33,24 +33,24 @@
             }
         },
         created() {
-            this.fetchArticles();
+            this.fetchTodos();
         },
         methods: {
-            fetchArticles() {
+            fetchTodos() {
                 axios.get(this.endpoint)
                      .then(res => this.todos = res.data)
                      .catch(err => console.log(err));
             },
             deleteTodo(id) {
                 axios.delete(`${this.endpoint}/${id}`)
-                     .then(res => this.fetchArticles())
+                     .then(res => this.fetchTodos())
                      .catch(err => console.log(err));
             },
             createTodo(){
                 axios.post(`${this.endpoint}`, this.todo)
                 .then(res => {
                     this.todo.title = '';
-                    this.fetchArticles();
+                    this.fetchTodos();
                 }).catch(err => console.log(err.response.data));
             }
         }
